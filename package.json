@@ -1,0 +1,15 @@
+{
+  "name": "riot-boostrap-alert",
+  "version": "1.0.0",
+  "description": "bootstrap alert riot tag",
+  "main": "index.js",
+  "scripts": {
+    "start": "superstatic",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "HugoWarsawDev <HugoWarsawDev@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "superstatic": "^4.0.3"
+  }
+}
