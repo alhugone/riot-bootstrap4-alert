@@ -1,16 +1,16 @@
 module.exports = function(config) {
   config.set({
     basePath: '',
-    frameworks: ['mocha','chai','riot'],
+    frameworks: ['jasmine','riot'],
     plugins: [
       'karma-mocha',
       'karma-mocha-reporter',
       'karma-phantomjs-launcher',
-      'karma-chai',
+      'karma-jasmine',
       'karma-riot'
     ],
     files: [
-      'node_modules/chai/chai',
+      'node_modules/jasmine/jasmine',
       'src/tag/*.tag',
       'src/tag.tests/*.js'
     ],
