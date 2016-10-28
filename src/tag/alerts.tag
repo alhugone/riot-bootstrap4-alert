@@ -9,6 +9,7 @@
       var type=this.getType(opts.type);
       if(type!=null){
         this.alerts.push({type:type, msg: opts.msg});
+        this.update();
       }
     }
     getType(type){

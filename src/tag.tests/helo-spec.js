@@ -1,9 +1,9 @@
-describe('Hello world spec', function() {
+describe('Simple test', function() {
 
   before(function() {
-    var html = document.createElement('hello')
+    var html = document.createElement('alerts')
     document.body.appendChild(html)
-    tag = riot.mount('hello')[0]
+    tag = riot.mount('alerts')[0]
   });
 
   it('mounts a hello tag', function() {
@@ -11,24 +11,14 @@ describe('Hello world spec', function() {
     expect(tag.isMounted).to.be.true
   })
 
-  it('has a name property ', function() {
-    expect(tag.name).to.exist
+  it('after mount tag has no elements', function() {
+    expect(tag.root.children.length).to.be.eq(0);
   })
 
-  it('mounts a hello tag with a setted name', function() {
-    tag = riot.mount('hello', {name: 'Carl'})[0]
-    expect(tag.name).to.be.eq('Carl')
-  })
-
-  it('prints <h1>Hello {name}</h1> ', function() {
-    tag = riot.mount('hello', {name: 'Carl'})[0]
-    var tagText = document.querySelector('hello > h1').textContent
-    expect(tagText).to.be.eq('Hello Carl')
-  })
-
-  it('transform name to uppercase', function() {
-    tag = riot.mount('hello', {name: 'Carl'})[0]
-    tag.uppercase()
-    expect(tag.name).to.be.eq('CARL')
+  it('after addAlert create DOM child', function() {
+    tag = riot.mount('alerts')[0]
+    tag.addAlert({type:'info',msg:'msg'});
+    expect(tag.root.children.length).to.be.eq(1);
+    expect(tag.alerts.length).to.be.eq(1);
   })
 })
