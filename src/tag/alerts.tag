@@ -5,13 +5,25 @@
   </div>
   <script>
     this.alerts=[]
-    addAlert(opts){      
-      var type=this.getType(opts.type);
-      if(type!=null){
-        this.alerts.push({type:type, msg: opts.msg});
+    var self=this;
+
+    addAlert(alert){
+      var type=this.getType(alert.type);
+      if(type!=null) {
+        var alertCpy=JSON.parse(JSON.stringify(alert))
+        this.alerts.push(alertCpy);
         this.update();
+        if(alert.hideAfter!=null){
+          setTimeout(function() {
+            self.alerts=self.alerts.filter(function(el){
+              return el!==alertCpy;
+            });
+            self.update();
+          },alert.hideAfter);
+        }
       }
     }
+
     getType(type){
       var retType=null;
       switch(type){
