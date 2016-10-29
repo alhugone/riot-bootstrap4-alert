@@ -45,8 +45,8 @@ describe('Base test', function() {
     expect(tag.alerts[1]).not.toBe(alerts[1]);
     expect(tag.alerts[2]).not.toBe(alerts[2]);
 
-    expect(tag.alerts[0]).toEqual(alerts[0]);
-    expect(tag.alerts[1]).toEqual(alerts[1]);
-    expect(tag.alerts[2]).toEqual(alerts[2]);
+    expect(tag.alerts[0].msg).toEqual(alerts[0].msg);
+    expect(tag.alerts[1].msg).toEqual(alerts[1].msg);
+    expect(tag.alerts[2].msg).toEqual(alerts[2].msg);
   })
 })

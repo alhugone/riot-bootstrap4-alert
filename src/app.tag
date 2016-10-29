@@ -5,7 +5,7 @@
     <div class="form-group row">
       <label class="col-sm-2 col-form-label" >Message:</label>
       <div class="col-sm-10">
-        <input name="input" class="form-control"  onkeyup={ edit } placeholder="text">
+        <input name="msg" class="form-control"  onkeyup={ edit } placeholder="text">
       </div>
     </div>     
     <fieldset class="form-group row">
@@ -40,7 +40,7 @@
     <div class="form-group row">
       <label class="col-sm-2 col-form-label" >Hide after:</label>
       <div class="col-sm-2">
-        <input name="input" type="number" class="form-control" placeholder=""  onchange={onHideAfterChanged}>
+        <input name="hideAfterInput" type="number" class="form-control" placeholder=""  onchange={onHideAfterChanged}>
       </div>
     </div> 
     <div class="row">
@@ -65,7 +65,8 @@
           { type: this.alertType,
             msg:this.text,
             hideAfter:this.hideAfter })
-        this.text = this.input.value = ''
+        this.text = this.msg.value = ''
+        this.hideAfter = this.hideAfterInput = ''
       }      
     }
 

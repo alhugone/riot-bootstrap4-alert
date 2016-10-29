@@ -8,15 +8,21 @@
     var self=this;
 
     addAlert(alert){
-      var type=this.getType(alert.type);
-      if(type!=null) {
-        var alertCpy=JSON.parse(JSON.stringify(alert))
+      var alertCpy=JSON.parse(JSON.stringify(alert))
+      alertCpy.type=this.getType(alertCpy.type);
+      if(alertCpy.type!=null) {
         this.alerts.push(alertCpy);
         this.update();
-        if(alert.hideAfter!=null && alert.hideAfter!==0){
+        if(alert.hideAfter!=null && alert.hideAfter!=0){
           setTimeout(function() {
-            self.alerts=self.alerts.filter(function(el){
-              return el!==alertCpy;
+            var index=self.alerts.indexOf(alertCpy);
+            if(alertCpy.fadeOutTime==null){
+                alertCpy.fadeOutTime='slow';
+            }
+            $(self.root.children[index]).fadeOut(alertCpy.fadeOutTime, function() {
+                self.alerts=self.alerts.filter(function(el){
+                return el!==alertCpy;
+              });
             });
             self.update();
           },alert.hideAfter);
