@@ -1,8 +1,10 @@
 [![Build Status](https://travis-ci.org/HugoWarsawDev/riot-bootstrap-alert.svg?branch=master)](https://travis-ci.org/HugoWarsawDev/riot-bootstrap-alert) [![Coverage Status](https://coveralls.io/repos/github/HugoWarsawDev/riot-bootstrap-alert/badge.svg)](https://coveralls.io/github/HugoWarsawDev/riot-bootstrap-alert)
 # riot-bootstrap-alert
-Riot.js custom tag that shows bootstrap alert.
+Riot.js custom tag that shows bootstrap alerts.
+## Live example
+http://plnkr.co/edit/1LYoFv?p=preview
 
-## Code Example
+## Code example
 Place \<alerts\> tag:
 
 `<alerts name="alerts"></alerts>`
