@@ -37,6 +37,12 @@
         </div>
       </div>
     </fieldset>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label" >Hide after:</label>
+      <div class="col-sm-2">
+        <input name="input" type="number" class="form-control" placeholder=""  onchange={onHideAfterChanged}>
+      </div>
+    </div> 
     <div class="row">
       <div class="col-xl-2 offset-sm-10">
         <button class="btn btn-primary float-xs-right" disabled={ !text } onclick={ addAlert }>Add</button>
@@ -45,7 +51,10 @@
   </form>
   <script>
     this.alertType = "success"
-    
+    this.hideAfter=0;
+    onHideAfterChanged(e){
+      this.hideAfter=e.target.value;
+    }
     edit(e) {
       this.text = e.target.value
     }
@@ -54,7 +63,8 @@
       if (this.text) {
         this.tags.alerts.addAlert(
           { type: this.alertType,
-            msg:this.text })
+            msg:this.text,
+            hideAfter:this.hideAfter })
         this.text = this.input.value = ''
       }      
     }

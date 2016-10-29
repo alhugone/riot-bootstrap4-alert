@@ -49,4 +49,15 @@ describe('hideAfter spec', function() {
     //assert    
     expect(tag.root.children.length).toEqual(2);    
   })
+
+  it('when addAlert called with hideAfter equalt to 0, hideAfter is ignored', function() {
+    //arrange
+    tag = riot.mount('alerts')[0]
+    tag.addAlert({type:'info',msg:'msg1',hideAfter: 0});
+    expect(tag.root.children.length).toEqual(1);
+    //act
+    jasmine.clock().tick(1000);
+    //assert
+    expect(tag.root.children.length).toEqual(1);
+  })
 })

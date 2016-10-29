@@ -13,7 +13,7 @@
         var alertCpy=JSON.parse(JSON.stringify(alert))
         this.alerts.push(alertCpy);
         this.update();
-        if(alert.hideAfter!=null){
+        if(alert.hideAfter!=null && alert.hideAfter!==0){
           setTimeout(function() {
             self.alerts=self.alerts.filter(function(el){
               return el!==alertCpy;
