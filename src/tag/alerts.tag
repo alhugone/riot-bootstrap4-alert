@@ -1,7 +1,10 @@
 
 <alerts>
-  <div each={ alerts } class="alert {type}" role="alert">
+  <div each={ alerts } class="alert {type} {alert-dismissible:dismissible}" role="alert">
     {msg}
+    <button if={ dismissible} type="button" class="close" onclick={this.parent.close} >
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
   <script>
     this.alerts=[]
@@ -9,28 +12,37 @@
 
     addAlert(alert){
       var alertCpy=JSON.parse(JSON.stringify(alert))
-      alertCpy.type=this.getType(alertCpy.type);
+      alertCpy.type=this._getType(alertCpy.type);
       if(alertCpy.type!=null) {
         this.alerts.push(alertCpy);
         this.update();
         if(!isNaN(alert.hideAfter)){
           setTimeout(function() {
-            var index=self.alerts.indexOf(alertCpy);
-            if(isNaN(alertCpy.fadeOutTime)){
-                alertCpy.fadeOutTime='slow';
-            }
-            $(self.root.children[index]).fadeOut(alertCpy.fadeOutTime, function() {
-                self.alerts=self.alerts.filter(function(el){
-                    return el!==alertCpy;
-                  });
-                self.update({alerts:self.alerts});
-            });
+          self._closeAlert(alertCpy);
           },alert.hideAfter);
         }
       }
     }
 
-    getType(type){
+    close(alert){
+      var alertCpy=alert.item;
+      this._closeAlert(alert.item);
+    }
+
+    _closeAlert(alert){
+      var index=self.alerts.indexOf(alert);
+      if(isNaN(alert.fadeOutTime)){
+          alert.fadeOutTime='slow';
+      }
+      $(self.root.children[index]).fadeOut(alert.fadeOutTime, function() {
+          self.alerts=self.alerts.filter(function(el){
+              return el!==alert;
+            });
+          self.update({alerts:self.alerts});
+      });
+    }
+
+    _getType(type){
       var retType=null;
       switch(type){
         case "success":

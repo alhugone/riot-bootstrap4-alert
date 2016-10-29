@@ -1,3 +1,4 @@
+process.env.COVERALLS_REPO_TOKEN='Qa7twc113k1sHhkSH1mGNfp3SBMwmdONN'
 module.exports = function(config) {
   config.set({
     basePath: '',
@@ -7,7 +8,10 @@ module.exports = function(config) {
       'karma-mocha-reporter',
       'karma-phantomjs-launcher',
       'karma-jasmine',
-      'karma-riot'
+      'karma-riot',
+      'karma-coverage',
+      'karma-coveralls',
+      
     ],
     files: [
       'node_modules/jasmine/jasmine',
@@ -15,10 +19,15 @@ module.exports = function(config) {
       'src/tag.tests/*.js'
     ],
     preprocessors: {
-      '**/*.tag': ['riot']
+      '**/*.tag': ['riot','coverage'],
+      'src/**/*.js': ['coverage']
     },
     browsers: ['PhantomJS'],
-    reporters: ['mocha'],
+    reporters: ['mocha','coverage', 'coveralls'],
+    coverageReporter: {
+type: 'lcov', // lcov or lcovonly are required for generating lcov.info files
+dir: 'coverage/'
+},
     failOnEmptyTestSuite: false,
     autoWatch: true,
     singleRun:true

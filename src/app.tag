@@ -46,6 +46,13 @@
       <div class="col-sm-2">
         <input name="fadeOutTimeInput" type="number" class="form-control" placeholder=""  onchange={onFadeOutTimeInputChanged}>
       </div>
+      <div class="col-sm-2">
+        <div class="form-check-inline">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" name="dissmisableInput"> Dissmisable
+          </label>
+        </div>
+      </div>
     </div> 
     <div class="row">
       <div class="col-xl-2 offset-sm-10">
@@ -66,7 +73,8 @@
           { type: this.alertType,
             msg:this.text,
             hideAfter:this.hideAfterInput.valueAsNumber,
-            fadeOutTime: this.fadeOutTimeInput.valueAsNumber })
+            fadeOutTime: this.fadeOutTimeInput.valueAsNumber,
+            dismissible:this.dissmisableInput.checked })
         }
     }
 
