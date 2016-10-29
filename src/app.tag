@@ -42,6 +42,10 @@
       <div class="col-sm-2">
         <input name="hideAfterInput" type="number" class="form-control" placeholder=""  onchange={onHideAfterChanged}>
       </div>
+      <label class="col-sm-2 col-form-label" >FadeOut Time:</label>
+      <div class="col-sm-2">
+        <input name="fadeOutTimeInput" type="number" class="form-control" placeholder=""  onchange={onFadeOutTimeInputChanged}>
+      </div>
     </div> 
     <div class="row">
       <div class="col-xl-2 offset-sm-10">
@@ -51,10 +55,7 @@
   </form>
   <script>
     this.alertType = "success"
-    this.hideAfter=0;
-    onHideAfterChanged(e){
-      this.hideAfter=e.target.value;
-    }
+
     edit(e) {
       this.text = e.target.value
     }
@@ -64,10 +65,9 @@
         this.tags.alerts.addAlert(
           { type: this.alertType,
             msg:this.text,
-            hideAfter:this.hideAfter })
-        this.text = this.msg.value = ''
-        this.hideAfter = this.hideAfterInput = ''
-      }      
+            hideAfter:this.hideAfterInput.valueAsNumber,
+            fadeOutTime: this.fadeOutTimeInput.valueAsNumber })
+        }
     }
 
     setAlertType(e){
