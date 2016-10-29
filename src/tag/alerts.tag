@@ -13,10 +13,10 @@
       if(alertCpy.type!=null) {
         this.alerts.push(alertCpy);
         this.update();
-        if(alert.hideAfter!=null && alert.hideAfter!=0){
+        if(!isNaN(alert.hideAfter)){
           setTimeout(function() {
             var index=self.alerts.indexOf(alertCpy);
-            if(alertCpy.fadeOutTime==null){
+            if(isNaN(alertCpy.fadeOutTime)){
                 alertCpy.fadeOutTime='slow';
             }
             $(self.root.children[index]).fadeOut(alertCpy.fadeOutTime, function() {
