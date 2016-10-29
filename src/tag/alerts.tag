@@ -21,10 +21,10 @@
             }
             $(self.root.children[index]).fadeOut(alertCpy.fadeOutTime, function() {
                 self.alerts=self.alerts.filter(function(el){
-                return el!==alertCpy;
-              });
+                    return el!==alertCpy;
+                  });
+                self.update({alerts:self.alerts});
             });
-            self.update();
           },alert.hideAfter);
         }
       }
