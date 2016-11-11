@@ -4,7 +4,7 @@
   "description": "bootstrap alert riot tag",
   "main": "index.js",
   "scripts": {
-    "start": "superstatic",
+    "start": "superstatic . --port 8888",
     "test": "karma start"
   },
   "repository": {
