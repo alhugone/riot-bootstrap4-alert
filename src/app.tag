@@ -49,7 +49,7 @@
       <div class="col-sm-2">
         <div class="form-check-inline">
           <label class="form-check-label">
-            <input class="form-check-input" type="checkbox" name="dissmisableInput"> Dissmisable
+            <input class="form-check-input" type="checkbox" name="dismissibleInput"> Dismissible
           </label>
         </div>
       </div>
@@ -74,7 +74,7 @@
             msg:this.text,
             hideAfter:this.hideAfterInput.valueAsNumber,
             fadeOutTime: this.fadeOutTimeInput.valueAsNumber,
-            dismissible:this.dissmisableInput.checked })
+            dismissible:this.dismissibleInput.checked })
         }
     }
 
