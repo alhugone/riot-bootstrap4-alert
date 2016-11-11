@@ -48,8 +48,10 @@
       </div>
       <div class="col-sm-2">
         <div class="form-check-inline">
-          <label class="form-check-label">
-            <input class="form-check-input" type="checkbox" name="dismissibleInput"> Dismissible
+          <label class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" name="dismissibleInput">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Dismissible</span>
           </label>
         </div>
       </div>
