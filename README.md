@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/alhugone/riot-bootstrap-alert.svg?branch=master)](https://travis-ci.org/alhugone/riot-bootstrap4-alert) [![Coverage Status](https://coveralls.io/repos/github/HugoWarsawDev/riot-bootstrap-alert/badge.svg)](https://coveralls.io/github/HugoWarsawDev/riot-bootstrap-alert)
+[![Build Status](https://travis-ci.org/alhugone/riot-bootstrap4-alert.svg?branch=master)](https://travis-ci.org/alhugone/riot-bootstrap4-alert) [![Coverage Status](https://coveralls.io/repos/github/HugoWarsawDev/riot-bootstrap-alert/badge.svg)](https://coveralls.io/github/HugoWarsawDev/riot-bootstrap-alert)
 # riot bootstrap v4 alpha alert tag
 Riot.js custom tag that shows bootstrap v4 alpha alerts.
 ## Live example
