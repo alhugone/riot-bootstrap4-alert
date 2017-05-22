@@ -2,7 +2,7 @@
 # riot bootstrap v4 alpha alert tag
 Riot.js custom tag that shows bootstrap v4 alpha alerts.
 ## Live example
-https://hugowarsawdev.github.io/riot-bootstrap4-alert/
+https://alhugone.github.io/riot-bootstrap4-alert/
 
 ## Code example
 Place \<alerts\> tag:
